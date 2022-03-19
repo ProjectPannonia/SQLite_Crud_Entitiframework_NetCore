@@ -93,5 +93,10 @@ namespace SQLite_Crud_Entitiframework_NetCore
         {
             Delete();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ItemList.Items.Clear();
+        }
     }
 }
