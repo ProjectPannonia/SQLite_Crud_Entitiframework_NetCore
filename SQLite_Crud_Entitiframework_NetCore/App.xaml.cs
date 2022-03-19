@@ -17,6 +17,8 @@ namespace SQLite_Crud_Entitiframework_NetCore
         protected override void OnStartup(StartupEventArgs e)
         {
             DatabaseFacade facade = new DatabaseFacade(new DataContext());
+            facade.EnsureCreated();
+
         }
     }
 }
