@@ -15,6 +15,7 @@ namespace SQLite_Crud_Entitiframework_NetCore
         {
             InitializeComponent();
         }
+
         public void Create()
         {
             using(DataContext context = new DataContext())
@@ -66,7 +67,7 @@ namespace SQLite_Crud_Entitiframework_NetCore
 
                 if(selectedUser != null)
                 {
-                    User user = context.Users.Find(selectedUser.Id);
+                    User user = context.Users.Single(x => x.Id == selectedUser.Id);
 
                     context.Remove(user);
                     context.SaveChanges();
@@ -77,6 +78,7 @@ namespace SQLite_Crud_Entitiframework_NetCore
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
             Create();
+            Read();
         }
 
         private void ReadButton_Click(object sender, RoutedEventArgs e)
@@ -87,11 +89,13 @@ namespace SQLite_Crud_Entitiframework_NetCore
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             Update();
+            Read();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             Delete();
+            Read();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
